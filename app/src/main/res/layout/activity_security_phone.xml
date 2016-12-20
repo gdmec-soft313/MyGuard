@@ -29,7 +29,7 @@
                                         android:layout_centerHorizontal="true"
                                         android:layout_marginTop="16dp"
                                         android:text="您还没有添加黑名单"
-                                        android:textColor="@color/light_gary"
+                                        android:textColor="@color/light_gray"
                                         android:textScaleX="1.2"/>
                         </RelativeLayout>
                 </FrameLayout>
@@ -53,7 +53,7 @@
         android:gravity="center">
         <Button
             android:id="@+id/btn_addblacknumber"
-            android:layout_weight="170dp"
+            android:layout_width="170dp"
             android:layout_gravity="center"
             android:layout_height="10dp"
             android:background="@drawable/add_blacknumber_btn_selector"/>

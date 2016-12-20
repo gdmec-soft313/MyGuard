@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.Window;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -36,12 +35,12 @@ public class AppLockActivity extends FragmentActivity implements View.OnClickLis
             public void onPageSelected(int arg0) {
                 if(arg0==0){
                     slideUnLockView.setBackgroundResource(R.drawable.slide_view);
-                    slideLockView.setBackgroundColor(getResources().getColor(R.color.transparemt));
+                    slideLockView.setBackgroundColor(getResources().getColor(R.color.transparent));
                     mLockTV.setTextColor(getResources().getColor(R.color.black));
                     mUnLockTV.setTextColor(getResources().getColor(R.color.bright_red));
                 }else{
                     slideLockView.setBackgroundResource(R.drawable.slide_view);
-                    slideUnLockView.setBackgroundColor(getResources().getColor(R.color.transparemt));
+                    slideUnLockView.setBackgroundColor(getResources().getColor(R.color.transparent));
                     mLockTV.setTextColor(getResources().getColor(R.color.bright_red));
                     mUnLockTV.setTextColor(getResources().getColor(R.color.black));
                 }
@@ -59,8 +58,8 @@ public class AppLockActivity extends FragmentActivity implements View.OnClickLis
     }
 
     private void iniitView() {
-        findViewById(R.id.rl_titlebar).setBackgroundColor(getResources().getColor(R.color.bright_red));
-        ImageView mLeftImgv= (ImageView) findViewById(R.id.imgv_leftbtn);
+        /*findViewById(R.id.rl_titlebar).setBackgroundColor(getResources().getColor(R.color.bright_red));
+        ImageView mLeftImgv= (ImageView) findViewById(R.id.imgv_leftbtn);*/
     }
 
     @Override

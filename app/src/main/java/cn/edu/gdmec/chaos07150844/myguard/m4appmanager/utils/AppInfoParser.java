@@ -35,9 +35,9 @@ public class AppInfoParser {
             appInfo.appSize = appSize;
             int flags = packageInfo.applicationInfo.flags;
             if ((ApplicationInfo.FLAG_EXTERNAL_STORAGE & flags)!=0){
-                appInfo.isInRom = false;
+                appInfo.isInRoom = false;
             }else {
-                appInfo.isInRom = true;
+                appInfo.isInRoom = true;
             }
             if ((ApplicationInfo.FLAG_SYSTEM & flags)!=0){
                 appInfo.isUserApp = false;
