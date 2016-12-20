@@ -11,11 +11,11 @@ public class AppInfo {
     public String appName;
     public String apkPath;
     public long appSize;
-    public boolean isInRom;
+    public boolean isInRoom;
     public boolean isUserApp;
     public boolean isSelected = false;
-    public String getAppLocation(boolean isInRom){
-        if (isInRom){
+    public String getAppLocation(boolean isInRoom){
+        if (isInRoom){
             return "手机内存";
         }else{
             return "外部存储";

@@ -1,6 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+        <ImageView
+            android:id="@+id/imgv_appicon"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+        <TextView
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/tv_appsize"
+            style="@style/textview16sp"/>
+        <TextView
+            android:id="@+id/tv_appname"
+            style="@style/textview16sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/imgv_appicon"/>
+        <TextView
+            android:id="@+id/tv_appisroom"
+            android:layout_marginTop="3dp"
+            android:layout_alignLeft="@+id/tv_appname"
+            android:layout_toRightOf="@+id/imgv_appicon"
+            android:layout_below="@+id/tv_appname"
+            style="@style/textview14sp" />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/black30"/>
+    <LinearLayout
+        android:id="@+id/ll_option_app"
+        android:orientation="horizontal"
+        android:layout_marginTop="3dp"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/tvyellow14sp"
+            android:drawableTop="@drawable/phoneicon_yellow_n"
+            android:text="启动"
+           android:id="@+id/tv_launch_app" />
+        <View
+            android:background="@color/black30"
+            android:layout_width="1px"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/tv_uninstall_app"
+            android:drawableTop="@drawable/deleteicon_yellow_n"
+            android:text="卸载"
+            style="@style/tvyellow14sp" />
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/black30"/>
+        <TextView
+            android:id="@+id/tv_share_app"
+            android:text="分享"
+            android:drawableTop="@drawable/shareicon_yellow_n"
+            style="@style/tvyellow14sp" />
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/black30"/>
+        <TextView
+            android:id="@+id/tv_setting_app"
+            android:text="设置"
+            android:drawableTop="@drawable/settingicon_yellow_n"
+            style="@style/tvyellow14sp" />
+    </LinearLayout>
 
 </LinearLayout>
