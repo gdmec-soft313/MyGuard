@@ -3,12 +3,21 @@
     package="cn.edu.gdmec.chaos07150844.myguard">
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".m4appmanager.AppManagerActivity"></activity>
+        <activity android:name=".m1home.HomeActivity"/>
+        <activity android:name=".m4appmanager.AppManagerActivity" />
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
