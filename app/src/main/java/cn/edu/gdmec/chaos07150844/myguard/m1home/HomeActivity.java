@@ -8,12 +8,22 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
 import cn.edu.gdmec.chaos07150844.myguard.R;
 import cn.edu.gdmec.chaos07150844.myguard.m1home.adapter.HomeAdapter;
+import cn.edu.gdmec.chaos07150844.myguard.m2theftguard.LostFindActivity;
+import cn.edu.gdmec.chaos07150844.myguard.m2theftguard.dialog.InterPasswordDialog;
+import cn.edu.gdmec.chaos07150844.myguard.m2theftguard.dialog.SetUpPasswordDialog;
+import cn.edu.gdmec.chaos07150844.myguard.m2theftguard.receiver.MyDeviceAdminReciever;
+import cn.edu.gdmec.chaos07150844.myguard.m2theftguard.utils.MD5Utils;
+import cn.edu.gdmec.chaos07150844.myguard.m3communicationguard.SecurityPhoneActivity;
+import cn.edu.gdmec.chaos07150844.myguard.m4appmanager.AppManagerActivity;
+import cn.edu.gdmec.chaos07150844.myguard.m9advancedtools.AdvancedToolsActivity;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -34,7 +44,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-        /*gv_home.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        gv_home.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i){
@@ -52,22 +62,22 @@ public class HomeActivity extends AppCompatActivity {
                         startActivity(AppManagerActivity.class);
                         break;
                     case 3://手机杀毒
-                        startActivity(VirusScanActivity.class);
+                        //startActivity(VirusScanActivity.class);
                         break;
                     case 4://缓存清理
-                        startActivity(CacheClearListActivity.class);
+                        //startActivity(CacheClearListActivity.class);
                         break;
                     case 5://进程管理
-                        startActivity(ProcessManagerActivity.class);
+                        //startActivity(ProcessManagerActivity.class);
                         break;
                     case 6://流量统计
-                        startActivity(TrafficMonitoringActivity.class);
+                        //startActivity(TrafficMonitoringActivity.class);
                         break;
                     case 7://高级工具
                         startActivity(AdvancedToolsActivity.class);
                         break;
                     case 8://设置中心
-                        startActivity(SettingsActivity.class);
+                        //startActivity(SettingsActivity.class);
                         break;
                 }
             }
@@ -81,12 +91,12 @@ public class HomeActivity extends AppCompatActivity {
             intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN,componentName);
             intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION,"获取超级管理员权限，用于远程锁屏和清理数据");
             startActivity(intent);
-        }*/
+        }
 
 
     }
 
-    /*private void showSetUpPswDialog(){
+    private void showSetUpPswDialog(){
         final SetUpPasswordDialog setUpPasswordDialog=new SetUpPasswordDialog(HomeActivity.this);
         setUpPasswordDialog.setCallBack(new SetUpPasswordDialog.MyCallBack(){
             public void ok(){
@@ -98,11 +108,11 @@ public class HomeActivity extends AppCompatActivity {
                         setUpPasswordDialog.dismiss();
                         showInterPswdDialog();
                     }else{
-                        Toast.makeText(HomeActivity.this,"两次密码不一致！",0).show();
+                        Toast.makeText(HomeActivity.this,"两次密码不一致！",Toast.LENGTH_SHORT).show();
 
                     }
                 }else{
-                    Toast.makeText(HomeActivity.this,"密码不能为空!",0).show();
+                    Toast.makeText(HomeActivity.this,"密码不能为空!",Toast.LENGTH_SHORT).show();
 
                 }
             }
@@ -122,13 +132,13 @@ public class HomeActivity extends AppCompatActivity {
         mInPswdDialog.setCallBack(new InterPasswordDialog.MyCallBack(){
             public void confirm(){
                 if(TextUtils.isEmpty(mInPswdDialog.getPassword())){
-                    Toast.makeText(HomeActivity.this,"密码不能为空!",0).show();
+                    Toast.makeText(HomeActivity.this,"密码不能为空!",Toast.LENGTH_SHORT).show();
                 }else if(password.equals(MD5Utils.encode(mInPswdDialog.getPassword()))){
                     mInPswdDialog.dismiss();
                     startActivity(LostFindActivity.class);
                 }else{
                     mInPswdDialog.dismiss();
-                    Toast.makeText(HomeActivity.this,"密码有误，请重新输入！",0).show();
+                    Toast.makeText(HomeActivity.this,"密码有误，请重新输入！",Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -142,9 +152,9 @@ public class HomeActivity extends AppCompatActivity {
 
     private void savePswd(String affirmPswd){
         SharedPreferences.Editor editor=msharedPreferences.edit();
-        editor.putString("PhoneAntiTheftPWD",MD5Utils.encode(affirmPswd));
+        editor.putString("PhoneAntiTheftPWD", MD5Utils.encode(affirmPswd));
         editor.commit();
-    }*/
+    }
 
     private String getPassword(){
         String password=msharedPreferences.getString("PhoneAntiTheftPWD",null);
