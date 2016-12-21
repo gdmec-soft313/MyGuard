@@ -20,8 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".m8trafficmonitor.OperatorSetActivity" />
-        <activity android:name=".m8trafficmonitor.TrafficMonitoringActivity"></activity>
+        <activity android:name=".m7processmanager.ProcessManagerActivity" />
+        <activity android:name=".m7processmanager.ProcessManagerSettingActivity"></activity>
     </application>
 
 </manifest>
