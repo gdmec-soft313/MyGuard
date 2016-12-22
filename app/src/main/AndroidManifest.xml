@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cn.edu.gdmec.chaos07150844.myguard">
 
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -9,7 +11,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".m1home.HomeActivity"/>
+        <activity android:name=".m1home.HomeActivity" />
         <activity android:name=".m4appmanager.AppManagerActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
@@ -18,6 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".m7processmanager.ProcessManagerActivity" />
+        <activity android:name=".m7processmanager.ProcessManagerSettingActivity"></activity>
     </application>
 
 </manifest>
