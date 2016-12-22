@@ -39,7 +39,7 @@ public class AppManagerActivity extends AppCompatActivity implements View.OnClic
             switch (msg.what){
                 case 10:
                     if (adapter == null){
-                        adapter = new AppManagerAdapter(userAppInfos,systemAppInfos,AppManagerActivity.this)
+                        adapter = new AppManagerAdapter(userAppInfos,systemAppInfos,AppManagerActivity.this);
                     }
                     mListView.setAdapter(adapter);
                     adapter.notifyDataSetChanged();

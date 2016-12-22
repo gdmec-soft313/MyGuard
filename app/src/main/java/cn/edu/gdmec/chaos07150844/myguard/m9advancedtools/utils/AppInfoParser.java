@@ -8,13 +8,13 @@ import android.graphics.drawable.Drawable;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.edu.gdmec.chaos07150844.myguard.m4appmanager.entity.AppInfo;
+import cn.edu.gdmec.chaos07150844.myguard.m9advancedtools.entity.AppInfo;
 
 /**
  * Created by qaq on 2016/12/20.
  */
 public class AppInfoParser {
-    public static List<AppInfo> getAppInfos(Context context){
+    public static List<cn.edu.gdmec.chaos07150844.myguard.m9advancedtools.entity.AppInfo> getAppInfos(Context context){
         PackageManager pm=context.getPackageManager();
         List<PackageInfo> packaInfos=pm.getInstalledPackages(0);
         List<AppInfo> appinfos=new ArrayList<AppInfo>();
