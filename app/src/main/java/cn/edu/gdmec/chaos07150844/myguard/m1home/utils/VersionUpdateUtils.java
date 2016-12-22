@@ -50,7 +50,7 @@ public class VersionUpdateUtils {
         public void handleMessage(android.os.Message msg){
             switch (msg.what){
                 case MESSAGE_IO_EEOR:
-                    Toast.makeText(context,"10号异常",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context,"IO异常",Toast.LENGTH_SHORT).show();
                     enterHome();
                     break;
                 case MESSAGE_JSON_EEOR:

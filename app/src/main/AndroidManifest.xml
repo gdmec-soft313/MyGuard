@@ -32,6 +32,61 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".m2theftguard.ContactSelectActivity"/>
+        <activity android:name=".m2theftguard.LostFindActivity"/>
+        <activity android:name=".m2theftguard.SetUp1Activity"/>
+        <activity android:name=".m2theftguard.SetUp2Activity"/>
+        <activity android:name=".m2theftguard.SetUp3Activity"/>
+        <activity android:name=".m2theftguard.SetUp4Activity"/>
+        
+        <receiver android:name=".m2theftguard.receiver.BootCompleteReciever"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".m2theftguard.receiver.MyDeviceAdminReciever"
+            android:description="@string/sample_device_admin_descrition"
+            android:enabled="true"
+            android:exported="true"
+            android:label="@string/sample_device_admin"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin_sample"/>
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".m2theftguard.receiver.SmsLostFindReciver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+        <service android:name=".m2theftguard.service.GPSLocationService"
+            android:enabled="true"
+            android:exported="true"/>
+        <activity android:name=".m3communicationguard.AddBlackNumberActivity"/>
+        <activity android:name=".m3communicationguard.ContactSelectActivity"/>
+        <activity android:name=".m3communicationguard.SecurityPhoneActivity"/>
+        <receiver android:name=".m3communicationguard.receiver.InterceptCallReciever"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.PHONE_STATE"/>
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".m3communicationguard.receiver.InterceptSmsReciever"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
 
     </application>
 

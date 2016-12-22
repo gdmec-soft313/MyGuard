@@ -165,9 +165,9 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private boolean isSetUpPassword(){
-        String password=msharedPreferences.getString("",null);
+        String password=msharedPreferences.getString("PhoneAntiTheftPWD",null);
         if(TextUtils.isEmpty(password)){
-            return true;
+            return false;
         }
         return true;
     }
