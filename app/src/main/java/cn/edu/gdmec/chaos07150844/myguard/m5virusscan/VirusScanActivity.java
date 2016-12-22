@@ -20,6 +20,7 @@ public class VirusScanActivity extends AppCompatActivity implements View.OnClick
 
     private TextView mLastTimeTV;
     private SharedPreferences mSP;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
