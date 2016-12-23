@@ -16,6 +16,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_SMS"/>
     <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"/>
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE"/>
 
     <application
         android:name=".App"
@@ -87,6 +89,8 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
             </intent-filter>
         </receiver>
+        <activity android:name=".m6ceancache.CleanCacheActivity"/>
+        <activity android:name=".m6ceancache.CacheClearListActivity"/>
 
     </application>
 

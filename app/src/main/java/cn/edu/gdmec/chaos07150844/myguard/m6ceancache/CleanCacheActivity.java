@@ -55,7 +55,7 @@ public class CleanCacheActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_clean_cache);
         initView();
         pm = getPackageManager();
-        Intent intent = new Intent();
+        Intent intent = getIntent();
         cacheMemory = intent.getLongExtra("cacheMemory",0);
         initData();
     }
@@ -103,7 +103,7 @@ public class CleanCacheActivity extends AppCompatActivity implements View.OnClic
         mMemoryUnitTV.setText(memoryUnit);
     }
     private void initView(){
-        findViewById(R.id.rl_titilebar).setBackgroundColor(
+        findViewById(R.id.rl_titlebar).setBackgroundColor(
         getResources().getColor(R.color.rose_red));
         ((TextView)findViewById(R.id.tv_title)).setText("缓存清理");
         ImageView mLeftImgv = (ImageView) findViewById(R.id.imgv_leftbtn);

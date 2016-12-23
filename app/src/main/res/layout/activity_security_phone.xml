@@ -9,42 +9,42 @@
         android:layout_height="match_parent"
         android:layout_weight="10">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/fl_noblacknumber">
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/fl_noblacknumber">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:id="@+id/noblacknumbericon"
-                    android:background="@drawable/no_blacknumbericon"
-                    android:layout_centerInParent="true"/>
-                <TextView
-                    style="@style/textview16sp"
-                    android:layout_below="@+id/noblacknumbericon"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="16dp"
-                    android:text="您还没有添加黑名单"
-                    android:textColor="@color/light_gray"
-                    android:textScaleX="1.2"/>
-            </RelativeLayout>
-        </FrameLayout>
-        <FrameLayout
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                                    <ImageView
+                                        android:layout_width="100dp"
+                                        android:layout_height="100dp"
+                                        android:id="@+id/noblacknumbericon"
+                                        android:background="@drawable/no_blacknumbericon"
+                                        android:layout_centerInParent="true"></ImageView>
+                                    <TextView
+                                        style="@style/textview16sp"
+                                        android:layout_below="@+id/noblacknumbericon"
+                                        android:layout_centerHorizontal="true"
+                                        android:layout_marginTop="16dp"
+                                        android:text="您还没有添加黑名单"
+                                        android:textColor="@color/light_gray"
+                                        android:textScaleX="1.2"/>
+                        </RelativeLayout>
+                </FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fl_haveblacknumber"
+        android:visibility="gone">
+        <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/fl_haveblacknumber"
-            android:visibility="gone">
-            <ListView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/lv_blacknumbers"
-                android:dividerHeight="1dp"
-                android:divider="#ffffff"/>
-        </FrameLayout>
+            android:id="@+id/lv_blacknumbers"
+            android:dividerHeight="1dp"
+            android:divider="#ffffff"></ListView>
+    </FrameLayout>
     </RelativeLayout>
 
     <LinearLayout
@@ -54,9 +54,8 @@
         <Button
             android:id="@+id/btn_addblacknumber"
             android:layout_width="170dp"
-            android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_margin="10dp"
+            android:layout_height="10dp"
             android:background="@drawable/add_blacknumber_btn_selector"/>
     </LinearLayout>
 </LinearLayout>

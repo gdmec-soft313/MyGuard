@@ -1,7 +1,7 @@
 package cn.edu.gdmec.chaos07150844.myguard.m6ceancache;
 
 import android.content.Intent;
-import android.content.pm.IPackageDataObserver;
+import android.content.pm.IPackageStatsObserver;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageStats;
@@ -72,13 +72,14 @@ public class CacheClearListActivity extends AppCompatActivity implements View.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cache_clear_list);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.activity_cache_clear_list);
+
         pm = getPackageManager();
         initView();
     }
     private void initView(){
-        findViewById(R.id.rl_titilebar).setBackgroundColor(
+        findViewById(R.id.rl_titlebar).setBackgroundColor(
                 getResources().getColor(R.color.rose_red));
         ImageView mLeftImgv = (ImageView) findViewById(R.id.imgv_leftbtn);
         mLeftImgv.setOnClickListener(this);
@@ -124,7 +125,7 @@ public class CacheClearListActivity extends AppCompatActivity implements View.On
         try{
             Method method = PackageManager.class.getDeclaredMethod(
               "getPackageSizeInfo",String.class,
-                    IPackageDataObserver.class);
+                    IPackageStatsObserver.class);
             method.invoke(pm,info.packageName,new MyPackObserver(info));
         }catch (Exception e){
             e.printStackTrace();
