@@ -77,6 +77,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                     stopService(intent);
                 }
                 break;
+
         }
 
     }
