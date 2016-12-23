@@ -32,7 +32,7 @@ public class TaskInfoParser {
             taskInfo.appMemory=memsize;
             try{
                 PackageInfo packInfo=pm.getPackageInfo(packname,0);
-                Drawable icon= (Drawable) packInfo.applicationInfo.loadLabel(pm);
+                Drawable icon= packInfo.applicationInfo.loadIcon(pm);
                 taskInfo.appIcon=icon;
                 String appname =packInfo.applicationInfo.loadLabel(pm).toString();
                 taskInfo.appName=appname;

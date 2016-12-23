@@ -91,6 +91,12 @@
         </receiver>
         <activity android:name=".m6ceancache.CleanCacheActivity"/>
         <activity android:name=".m6ceancache.CacheClearListActivity"/>
+        <activity android:name=".m7processmanager.ProcessManagerActivity"/>
+        <activity android:name=".m7processmanager.ProcessManagerSettingActivity"/>
+
+        <service android:name=".m7processmanager.service.AutoKillProcessService"
+            android:enabled="true"
+            android:exported="true"/>
 
     </application>
 
