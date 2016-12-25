@@ -192,5 +192,7 @@ public class TrafficMonitoringActivity extends AppCompatActivity implements View
             receiver = null;
         }
         super.onDestroy();
+
+
     }
 }
