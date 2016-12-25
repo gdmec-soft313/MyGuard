@@ -5,7 +5,20 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
 
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imgv_appicon"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="5dp"/>
 
+    <TextView
+       android:id="@+id/tv_appname"
+
+    android:orientation="vertical"
+        android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
     <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -29,8 +42,5 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
         android:layout_centerVertical="true"/>
-
-
-
 
 </RelativeLayout>

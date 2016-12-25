@@ -3,7 +3,6 @@ package cn.edu.gdmec.chaos07150844.myguard.m2theftguard;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.CompoundButton;
@@ -25,7 +24,7 @@ public class LostFindActivity extends Activity implements View.OnClickListener{
     private TextView mProtectStatusTV;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(android.os.Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_lost_find);
@@ -36,6 +35,7 @@ public class LostFindActivity extends Activity implements View.OnClickListener{
         initView();
     }
     private boolean isSetUp(){
+
         return msharedPreferences.getBoolean("isSetUp",false);
     }
     private void initView(){
@@ -44,7 +44,7 @@ public class LostFindActivity extends Activity implements View.OnClickListener{
         ImageView mLeftImgv = (ImageView) findViewById(R.id.imgv_leftbtn);
         mLeftImgv.setOnClickListener(this);
         mLeftImgv.setImageResource(R.drawable.back);
-        findViewById(R.id.rl_titilebar).setBackgroundColor(getResources().getColor(R.color.purple));
+        findViewById(R.id.rl_titlebar).setBackgroundColor(getResources().getColor(R.color.purple));
         mSafePhoneTV = (TextView) findViewById(R.id.tv_safephone);
         mSafePhoneTV.setText(msharedPreferences.getString("safephone",""));
         mToggleButton  = (ToggleButton) findViewById(R.id.togglebtn_lostfind);
