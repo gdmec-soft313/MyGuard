@@ -6,10 +6,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.SystemClock;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.edu.gdmec.chaos07150844.myguard.m3communicationguard.AddBlackNumberActivity;
 import cn.edu.gdmec.chaos07150844.myguard.m3communicationguard.db.BlackNumberOpenHelper;
 import cn.edu.gdmec.chaos07150844.myguard.m3communicationguard.entity.BlackContactInfo;
 
@@ -35,27 +37,31 @@ public class BlackNumberDao {
         values.put("mode",blackContactInfo.mode);
         long rowid= db.insert("blacknumber",null,values);
         if(rowid == -1){
+
             return false;
+
+
         }else{
             return true;
         }
     }
-    public boolean delete(BlackContactInfo blackContactInfo){
+    public boolean delete(BlackContactInfo blackContactInfo) {
         SQLiteDatabase db = blackNumberOpenHelper.getWritableDatabase();
-        int rownumber = db.delete("blacknumber","number=?",new String[]{
+        int rownumber = db.delete("blacknumber", "number=?", new String[]{
                 blackContactInfo.phoneNumber
         });
-        if(rownumber == 0){
+        if (rownumber == 0) {
             return false;
-        }else{
+        } else {
             return true;
         }
     }
+
     public List<BlackContactInfo> getPageBlackNumber(int pagenumber,int pagesize){
         SQLiteDatabase db = blackNumberOpenHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("select number,mode,name from blacknumber limit ? offse ?",new String[]{
-                String.valueOf(pagesize * pagenumber)
-        });
+        Cursor cursor = db.rawQuery("select number,mode,name from blacknumber limit ? offset ?",
+                new String[]{String.valueOf(pagesize),
+                String.valueOf(pagesize * pagenumber)});
         List<BlackContactInfo> mBlackContactInfos = new ArrayList<BlackContactInfo>();
         while (cursor.moveToNext()){
             BlackContactInfo info = new BlackContactInfo();
@@ -65,6 +71,7 @@ public class BlackNumberDao {
             mBlackContactInfos.add(info);
         }
         cursor.close();
+        db.close();
         SystemClock.sleep(30);
         return mBlackContactInfos;
     }

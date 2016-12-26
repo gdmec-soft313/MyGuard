@@ -19,6 +19,7 @@ import cn.edu.gdmec.chaos07150844.myguard.R;
 import cn.edu.gdmec.chaos07150844.myguard.m3communicationguard.adapter.BlackContactAdapter;
 import cn.edu.gdmec.chaos07150844.myguard.m3communicationguard.db.dao.BlackNumberDao;
 import cn.edu.gdmec.chaos07150844.myguard.m3communicationguard.entity.BlackContactInfo;
+import cn.edu.gdmec.chaos07150844.myguard.m3communicationguard.adapter.BlackContactAdapter.BlackContactCallBack;
 
 public class SecurityPhoneActivity extends AppCompatActivity implements View.OnClickListener{
     private FrameLayout mHaveBlackNumber;
@@ -69,7 +70,7 @@ public class SecurityPhoneActivity extends AppCompatActivity implements View.OnC
                 finish();
                 break;
             case R.id.btn_addblacknumber:
-                startActivity(new Intent(this, AddBlackNumberActivity.class));
+                startActivityForResult(new Intent(this, AddBlackNumberActivity.class),0);
                 break;
         }
     }
@@ -79,17 +80,24 @@ public class SecurityPhoneActivity extends AppCompatActivity implements View.OnC
         if (totalNumber ==0 ){
             mHaveBlackNumber.setVisibility(View.GONE);
             mNoBlackNumber.setVisibility(View.VISIBLE);
+            Toast.makeText(this,"22",Toast.LENGTH_LONG).show();
         }else if (totalNumber > 0){
             mHaveBlackNumber.setVisibility(View.VISIBLE);
             mNoBlackNumber.setVisibility(View.GONE);
+
+
             pagenumber = 0;
             if (pageBlackNumber.size()>0){
                 pageBlackNumber.clear();
+                Toast.makeText(this,"33",Toast.LENGTH_LONG).show();
             }
             pageBlackNumber.addAll(dao.getPageBlackNumber(pagenumber,pagesize));
             if (adapter == null){
+                Toast.makeText(this,"56",Toast.LENGTH_LONG).show();
                 adapter = new BlackContactAdapter(pageBlackNumber,SecurityPhoneActivity.this);
-                adapter.setCallBack(new BlackContactAdapter.BlackContactCallBack() {
+                adapter.setCallBack(new BlackContactCallBack() {
+
+
                     @Override
                     public void DataSizeChanged() {
                         fillData();
@@ -98,6 +106,7 @@ public class SecurityPhoneActivity extends AppCompatActivity implements View.OnC
                 mListView.setAdapter(adapter);
             }else{
                 adapter.notifyDataSetChanged();
+                Toast.makeText(this,"44",Toast.LENGTH_LONG).show();
             }
 
         }
@@ -139,5 +148,22 @@ public class SecurityPhoneActivity extends AppCompatActivity implements View.OnC
 
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(adapter==null){
+            adapter = new BlackContactAdapter(pageBlackNumber,SecurityPhoneActivity.this);
+            adapter.setCallBack(new BlackContactCallBack() {
+                @Override
+                public void DataSizeChanged() {
+                    fillData();
+                }
+            });
+            mListView.setAdapter(adapter);
+        }else{
+            adapter.notifyDataSetChanged();
+        }
     }
 }
