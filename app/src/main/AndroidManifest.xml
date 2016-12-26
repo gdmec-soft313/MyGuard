@@ -89,6 +89,9 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
             </intent-filter>
         </receiver>
+        <activity android:name=".m4appmanager.AppManagerActivity"/>
+        <activity android:name=".m5virusscan.VirusScanActivity"/>
+        <activity android:name=".m5virusscan.VirusScanSpeedActivity"/>
         <activity android:name=".m6ceancache.CleanCacheActivity"/>
         <activity android:name=".m6ceancache.CacheClearListActivity"/>
         <activity android:name=".m7processmanager.ProcessManagerActivity"/>
@@ -97,6 +100,25 @@
         <service android:name=".m7processmanager.service.AutoKillProcessService"
             android:enabled="true"
             android:exported="true"/>
+        <activity android:name=".m8trafficmonitor.OperatorSetActivity"/>
+        <activity android:name=".m8trafficmonitor.TrafficMonitoringActivity"/>
+        <service android:name=".m8trafficmonitor.service.TrafficMonitoringService"
+            android:enabled="true"
+            android:exported="true"
+            android:persistent="true"/>
+        <receiver android:name=".m8trafficmonitor.receiver.BootCompleteReciever"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name=".m9advancedtools.AdvancedToolsActivity"/>
+        <activity android:name=".m9advancedtools.AppLockActivity"/>
+        <activity android:name=".m9advancedtools.EnterPswActivity"/>
+        <activity android:name=".m9advancedtools.NumBelongtoActivity"/>
+        <activity android:name=".m9advancedtools.SMSReducitionActivity"/>
+
 
     </application>
 
