@@ -21,7 +21,6 @@ public class AdvancedToolsActivity extends AppCompatActivity implements View.OnC
         setContentView(R.layout.activity_advanced_tools);
         initView();
     }
-
     private void initView() {
         findViewById(R.id.rl_titlebar).setBackgroundColor(getResources().getColor(R.color.bright_red));
         ImageView mLeftImgv= (ImageView) findViewById(R.id.imgv_leftbtn);
