@@ -23,6 +23,7 @@ import cn.edu.gdmec.chaos07150844.myguard.m2theftguard.receiver.MyDeviceAdminRec
 import cn.edu.gdmec.chaos07150844.myguard.m2theftguard.utils.MD5Utils;
 import cn.edu.gdmec.chaos07150844.myguard.m3communicationguard.SecurityPhoneActivity;
 import cn.edu.gdmec.chaos07150844.myguard.m4appmanager.AppManagerActivity;
+import cn.edu.gdmec.chaos07150844.myguard.m5virusscan.VirusScanActivity;
 import cn.edu.gdmec.chaos07150844.myguard.m6ceancache.CacheClearListActivity;
 import cn.edu.gdmec.chaos07150844.myguard.m7processmanager.ProcessManagerActivity;
 import cn.edu.gdmec.chaos07150844.myguard.m9advancedtools.AdvancedToolsActivity;
@@ -64,7 +65,7 @@ public class HomeActivity extends AppCompatActivity {
                         startActivity(AppManagerActivity.class);
                         break;
                     case 3://手机杀毒
-                        //startActivity(VirusScanActivity.class);
+                        startActivity(VirusScanActivity.class);
                         break;
                     case 4://缓存清理
                         startActivity(CacheClearListActivity.class);
