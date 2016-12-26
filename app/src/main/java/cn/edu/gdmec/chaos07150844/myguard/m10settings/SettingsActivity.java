@@ -50,6 +50,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         mAppLockSV.setChecked(running);
         mBlackNumSV.setChecked(mSP.getBoolean("BlackNumStatus",true));
         super.onStart();
+
     }
 
 
