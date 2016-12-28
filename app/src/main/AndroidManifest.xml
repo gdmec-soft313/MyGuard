@@ -122,7 +122,7 @@
         <activity android:name=".m9advancedtools.SMSBackupActivity"/>
         <service android:name=".m9advancedtools.service.AppLockService"
             android:persistent="true"/>
-
+        <activity android:name=".m10settings.SettingsActivity"/>
 
     </application>
 
