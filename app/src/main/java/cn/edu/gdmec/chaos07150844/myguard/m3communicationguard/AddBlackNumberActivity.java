@@ -32,7 +32,7 @@ public class AddBlackNumberActivity extends AppCompatActivity implements View.On
         initView();
     }
 
-    public void initView(){
+    private void initView(){
         findViewById(R.id.rl_titlebar).setBackgroundColor(
                 getResources().getColor(R.color.bright_purple)
         );
@@ -82,9 +82,9 @@ public class AddBlackNumberActivity extends AppCompatActivity implements View.On
                     }
                     if (!dao.IsNumberExist(blackContactInfo.phoneNumber)){
                         dao.add(blackContactInfo);
-                        Toast.makeText(this,"111",Toast.LENGTH_SHORT).show();
+
                     }else{
-                        Toast.makeText(this,"号码已存在",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this,"该号码已经被添加至黑名单",Toast.LENGTH_SHORT).show();
                     }
                     finish();
                 }
