@@ -11,7 +11,7 @@
         android:id="@+id/advanceview_numbelongs"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        custom_android:desc=""
+        custom_android:desc="手机归属地查询"
         android:gravity="center_vertical"
         android:src="@drawable/numofbelongto"/>
     <cn.edu.gdmec.chaos07150844.myguard.m9advancedtools.widget.AdvancedToolsView
@@ -21,8 +21,7 @@
         android:gravity="center_vertical"
         android:layout_marginTop="3dp"
         android:src="@drawable/sms_backup"
-        android:id="@+id/advanceview_smsbackup">
-    </cn.edu.gdmec.chaos07150844.myguard.m9advancedtools.widget.AdvancedToolsView>
+        android:id="@+id/advanceview_smsbackup"/>
     <cn.edu.gdmec.chaos07150844.myguard.m9advancedtools.widget.AdvancedToolsView
         android:layout_width="match_parent"
         android:layout_height="55dp"
@@ -30,8 +29,7 @@
         android:gravity="center_vertical"
         android:layout_marginTop="3dp"
         android:src="@drawable/sms_reduction"
-        android:id="@+id/advanceview_smsreduction">
-    </cn.edu.gdmec.chaos07150844.myguard.m9advancedtools.widget.AdvancedToolsView>
+        android:id="@+id/advanceview_smsreduction"/>
     <cn.edu.gdmec.chaos07150844.myguard.m9advancedtools.widget.AdvancedToolsView
         android:layout_width="match_parent"
         android:layout_height="55dp"
@@ -39,6 +37,5 @@
         android:gravity="center_vertical"
         android:layout_marginTop="3dp"
         android:src="@drawable/programoflock"
-        android:id="@+id/advanceview_applock">
-    </cn.edu.gdmec.chaos07150844.myguard.m9advancedtools.widget.AdvancedToolsView>
+        android:id="@+id/advanceview_applock"/>
 </LinearLayout>

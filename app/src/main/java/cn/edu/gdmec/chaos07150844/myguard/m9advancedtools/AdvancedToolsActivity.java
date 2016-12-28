@@ -9,14 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import cn.edu.gdmec.chaos07150844.myguard.R;
-import cn.edu.gdmec.chaos07150844.myguard.m9advancedtools.service.AppLockService;
 
 public class AdvancedToolsActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_advanced_tools);
         initView();
@@ -29,6 +27,8 @@ public class AdvancedToolsActivity extends AppCompatActivity implements View.OnC
         mLeftImgv.setImageResource(R.drawable.back);
         findViewById(R.id.advanceview_applock).setOnClickListener(this);
         findViewById(R.id.advanceview_numbelongs).setOnClickListener(this);
+        findViewById(R.id.advanceview_smsbackup).setOnClickListener(this);
+        findViewById(R.id.advanceview_smsreduction).setOnClickListener(this);
     }
     
     public void onClick(View v){
@@ -37,7 +37,7 @@ public class AdvancedToolsActivity extends AppCompatActivity implements View.OnC
                 finish();
                 break;
             case R.id.advanceview_applock:
-                startActivity(AppLockService.class);
+                startActivity(AppLockActivity.class);
                 break;
             case R.id.advanceview_numbelongs:
                 startActivity(NumBelongtoActivity.class);

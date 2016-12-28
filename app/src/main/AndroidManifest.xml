@@ -119,6 +119,9 @@
         <activity android:name=".m9advancedtools.EnterPswActivity"/>
         <activity android:name=".m9advancedtools.NumBelongtoActivity"/>
         <activity android:name=".m9advancedtools.SMSReducitionActivity"/>
+        <activity android:name=".m9advancedtools.SMSBackupActivity"/>
+        <service android:name=".m9advancedtools.service.AppLockService"
+            android:persistent="true"/>
 
 
     </application>
