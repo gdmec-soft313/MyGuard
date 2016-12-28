@@ -30,7 +30,7 @@ public class AppLockActivity extends FragmentActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_app_lock);
-        iniitView();
+        initView();
         initListener();
     }
 
@@ -62,7 +62,7 @@ public class AppLockActivity extends FragmentActivity implements View.OnClickLis
         });
     }
 
-    private void iniitView() {
+    private void initView() {
         findViewById(R.id.rl_titlebar).setBackgroundColor(getResources().getColor(R.color.bright_red));
         ImageView mLeftImgv= (ImageView) findViewById(R.id.imgv_leftbtn);
         ((TextView)findViewById(R.id.tv_title)).setText("程序锁");

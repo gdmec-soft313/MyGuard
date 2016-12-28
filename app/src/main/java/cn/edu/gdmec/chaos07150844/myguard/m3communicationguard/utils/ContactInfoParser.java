@@ -1,6 +1,5 @@
 package cn.edu.gdmec.chaos07150844.myguard.m3communicationguard.utils;
 
-import android.content.ContentProvider;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
@@ -34,12 +33,15 @@ public class ContactInfoParser {
 
                 Cursor dataCursor = resolver.query(datauri,new String[]{
                         "data1","mimetype"
-                },"raw contact id ?",new String[]{ id },null);
+                },"raw_contact_id=?",new String[]{ id },null);
 
                 while (dataCursor.moveToNext()){
                     String data1 = dataCursor.getString(0);
                     String mimetype = dataCursor.getString(1);
-                    if ("vnd.android.cursor.item/phone_v2".equals(mimetype)){
+                    if ("vnd.android.cursor.item/name".equals(mimetype)){
+                        System.out.println("电话"+data1);
+                        info.name = data1;
+                    }else if ("vnd.android.cursor.item/phone_v2".equals(mimetype)){
                         System.out.println("电话"+data1);
                         info.phone = data1;
                     }
@@ -64,7 +66,7 @@ public class ContactInfoParser {
             while (mCursor.moveToNext()){
                 ContactInfo info = new ContactInfo();
 
-                int nameFieldColumnIndex = mCursor.getColumnIndex("number");
+                int nameFieldColumnIndex = mCursor.getColumnIndex("name");
                 info.name=mCursor.getString(nameFieldColumnIndex);
                 int numberFieldColumnIndex = mCursor.getColumnIndex("number");
                 info.phone=mCursor.getString(numberFieldColumnIndex);
