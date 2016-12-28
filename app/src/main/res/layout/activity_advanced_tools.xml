@@ -11,7 +11,7 @@
         android:id="@+id/advanceview_numbelongs"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        custom_android:desc="手机归属地查询"
+        custom_android:desc="手机归属查询"
         android:gravity="center_vertical"
         android:src="@drawable/numofbelongto"/>
     <cn.edu.gdmec.chaos07150844.myguard.m9advancedtools.widget.AdvancedToolsView
@@ -33,7 +33,7 @@
     <cn.edu.gdmec.chaos07150844.myguard.m9advancedtools.widget.AdvancedToolsView
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        custom_android:desc="程序猿 "
+        custom_android:desc="程序锁 "
         android:gravity="center_vertical"
         android:layout_marginTop="3dp"
         android:src="@drawable/programoflock"

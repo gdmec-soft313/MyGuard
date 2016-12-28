@@ -10,7 +10,7 @@ import android.text.TextUtils;
 public class NumBelongtoDao {
     public static String getLocation(String phonenumber){
         String location=phonenumber;
-        SQLiteDatabase db=SQLiteDatabase.openDatabase("/data/data/cn.edu.gdmec.t00385.android2016.myguard/files/address.db",null,SQLiteDatabase.OPEN_READONLY);
+        SQLiteDatabase db=SQLiteDatabase.openDatabase("/data/data/cn.edu.gdmec.chaos07150844.myguard/files/address.db",null,SQLiteDatabase.OPEN_READONLY);
         if (phonenumber.matches("^1[34578]\\d[9]$")){
             Cursor cursor=db.rawQuery("select loction from data2 where id=(select outkey from datal where id=?)",new String[]{phonenumber.substring(0,7)});
             if (cursor.moveToNext()){

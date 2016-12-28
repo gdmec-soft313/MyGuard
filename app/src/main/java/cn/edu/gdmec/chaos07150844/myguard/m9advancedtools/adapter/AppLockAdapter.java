@@ -59,14 +59,14 @@ public class AppLockAdapter extends BaseAdapter{
         if (appInfo.isLock){
             holder.mLockIcon.setBackgroundResource(R.drawable.applock_icon);
         }else {
-            holder.mLockIcon.setBackgroundResource(R.drawable.applock_icon);
+            holder.mLockIcon.setBackgroundResource(R.drawable.appunlock_icon);
         }
         return convertView;
     }
 
     static class ViewHolder {
-        ImageView mAppIconImgv;
         TextView mAppNameTV;
+        ImageView mAppIconImgv;
         ImageView mLockIcon;
     }
 }
