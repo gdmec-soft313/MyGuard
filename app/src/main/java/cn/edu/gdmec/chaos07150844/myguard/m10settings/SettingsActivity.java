@@ -42,11 +42,14 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         mLeftImgv.setOnClickListener(this);
         mLeftImgv.setImageResource(R.drawable.back);
         mBlackNumSV = (SettingView) findViewById(R.id.sv_blacknumber_set);
+        mAppLockSV = (SettingView) findViewById(R.id.sv_applock_set);
+        mBlackNumSV.setOnCheckedStatusIsChanged(this);
+        mAppLockSV.setOnCheckedStatusIsChanged(this);
 
     }
 
     protected void onStart(){
-        running = SystemInfoUtils.isServiceRunning(this,"cn.itcast.mobliesafe.chapter09.service.AppLockService");
+        running = SystemInfoUtils.isServiceRunning(this,"cn.edu.gdmec.chaos07150844.myguard.m9advancedtools.service.AppLockService");
         mAppLockSV.setChecked(running);
         mBlackNumSV.setChecked(mSP.getBoolean("BlackNumStatus",true));
         super.onStart();
