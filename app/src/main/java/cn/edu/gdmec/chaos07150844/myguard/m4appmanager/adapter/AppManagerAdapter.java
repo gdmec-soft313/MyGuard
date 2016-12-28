@@ -150,7 +150,7 @@ public class AppManagerAdapter extends BaseAdapter{
                     EngineUtils.starApplication(context,appInfo);
                     break;
                 case R.id.tv_share_app:
-                    EngineUtils.starApplication(context,appInfo);
+                    EngineUtils.shareApplication(context,appInfo);
                     break;
                 case R.id.tv_setting_app:
                     EngineUtils.SettingAppDetail(context,appInfo);

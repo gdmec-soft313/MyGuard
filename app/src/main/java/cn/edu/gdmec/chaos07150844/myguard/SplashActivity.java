@@ -8,7 +8,7 @@ import android.widget.TextView;
 import cn.edu.gdmec.chaos07150844.myguard.m1home.utils.MyUtils;
 import cn.edu.gdmec.chaos07150844.myguard.m1home.utils.VersionUpdateUtils;
 
-public class SplashActivity extends AppCompatActivity {
+public class  SplashActivity extends AppCompatActivity {
 
     private TextView mVersionTV;
     private String mVersion;
