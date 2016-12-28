@@ -56,7 +56,7 @@ public class ContactSelectActivity extends AppCompatActivity implements View.OnC
         new Thread(){
             public void run(){
                 systemContacts = ContactInfoParser.getSystemContact(ContactSelectActivity.this);
-                systemContacts.addAll(ContactInfoParser.getSystemContact(ContactSelectActivity.this)) ;
+                systemContacts.addAll(ContactInfoParser.getSimContacts(ContactSelectActivity.this)) ;
                 mHandler.sendEmptyMessage(10);
 
             };
