@@ -89,18 +89,18 @@ public class AppUnLockFragment extends Fragment{
     }
     private void initListener(){
         mUnLockLV.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            public void onItemClick(AdapterView<?> parent,View view,final int position,long id){
-                if(unlockApps.get(position).packageName.equals("cn.itcast.mobliesafe")){
+            public void onItemClick(AdapterView<?> parent,View view,final int position,long id) {
+                if (unlockApps.get(position).packageName.equals("cn.itcast.mobliesafe")) {
                     return;
                 }
-                TranslateAnimation ta=new TranslateAnimation(Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,1.0f,Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,0);
+                TranslateAnimation ta = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 1.0f, Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0);
                 ta.setDuration(300);
                 view.startAnimation(ta);
-                new Thread(){
-                    public void run(){
-                        try{
+                new Thread() {
+                    public void run() {
+                        try {
                             Thread.sleep(300);
-                        }catch (InterruptedException e){
+                        } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                         getActivity().runOnUiThread(new Runnable() {
@@ -111,7 +111,7 @@ public class AppUnLockFragment extends Fragment{
                                 adapter.notifyDataSetChanged();
                             }
                         });
-                    }
+                    };
                 }.start();
             }
         });
