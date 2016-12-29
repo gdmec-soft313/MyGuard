@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:itcast="cn.edu.gdmec.chaos07150844.myguard"
+    xmlns:itcast="http://schemas.android.com/apk/res/cn.edu.gdmec.chaos07150844.myguard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -21,8 +21,8 @@
         android:id="@+id/sv_applock_set"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        itcast:status_on="黑名单拦截已开启"
-        itcast:status_off="黑名单拦截已关闭"
+        itcast:status_on="程序锁已开启"
+        itcast:status_off="程序锁已关闭"
         itcast:settitle="程序锁设置"
         />
 

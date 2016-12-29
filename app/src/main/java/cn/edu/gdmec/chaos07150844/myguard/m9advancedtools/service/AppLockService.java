@@ -22,7 +22,7 @@ import cn.edu.gdmec.chaos07150844.myguard.m9advancedtools.db.dao.AppLockDao;
 public class AppLockService extends Service{
     private boolean flag=false;
     private AppLockDao dao;
-    private Uri uri= Uri.parse("cn.edu.gdmec.chaos07150844.myguard.applock");
+    private Uri uri= Uri.parse("content://cn.edu.gdmec.chaos07150844.myguard.applock");
     private List<String> packagenames;
     private Intent intent;
     private ActivityManager am;
