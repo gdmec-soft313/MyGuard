@@ -31,7 +31,7 @@ public class AppEntity {
         return packageName;
     }
 
-    public void getPackageName(String packageName){
+    public void setPackageName(String packageName){
         this.packageName=packageName;
     }
 

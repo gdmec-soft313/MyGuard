@@ -39,7 +39,7 @@ public class ProcessManagerAdapter extends BaseAdapter{
         if(mSystaskInfos.size()>0&mSP.getBoolean("showSystemProcess",true)){
             return mUsertaskInfos.size()+mSystaskInfos.size()+2;
         }else{
-            return mUsertaskInfos.size();
+            return mUsertaskInfos.size()+1;
         }
 
     }

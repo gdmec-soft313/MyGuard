@@ -197,7 +197,7 @@ public class ProcessManagerActivity extends AppCompatActivity implements View.On
         runningProcessCount=count;
         mRunProcessNum.setText("运行中的进程:"+runningProcessCount+"个");
         mMemoryTV.setText("可用/总内存"+Formatter.formatFileSize(this,SystemInfoUtils.getAvailMem(this))+"/"+Formatter.formatFileSize(this,totalMem));
-        Toast.makeText(this,"清理了"+count+"个进程，释放了"+Formatter.formatFileSize(this,saveMemory)+"内存",1).show();
+        Toast.makeText(this,"清理了"+count+"个进程，释放了"+Formatter.formatFileSize(this,saveMemory)+"内存",Toast.LENGTH_SHORT).show();
         mProcessNumTV.setText("用户进程:"+userTaskInfos.size()+"个");
         adapter.notifyDataSetChanged();
     }
