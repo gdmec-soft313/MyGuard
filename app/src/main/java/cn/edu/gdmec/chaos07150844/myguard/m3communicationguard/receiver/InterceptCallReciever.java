@@ -92,6 +92,7 @@ public class InterceptCallReciever extends BroadcastReceiver{
             if (cursor.moveToNext()){
                 String id = cursor.getString(0);
                 resolver.delete(uri,"_id=?",new String[]{ id });
+
             }
         }
 
