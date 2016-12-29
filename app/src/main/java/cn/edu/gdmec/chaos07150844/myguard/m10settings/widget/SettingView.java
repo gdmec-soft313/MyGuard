@@ -47,7 +47,6 @@ public class SettingView extends RelativeLayout{
         mTypedArray.recycle();
         init(context);
         setStatus(status_on,status_off,isChecked);
-
     }
 
     private void init(Context context){
