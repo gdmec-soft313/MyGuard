@@ -39,7 +39,7 @@ public class AutoKillProcessService extends Service{
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            ActivityManager am= (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+            ActivityManager am= (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
             for(ActivityManager.RunningAppProcessInfo info:am.getRunningAppProcesses()){
                 String packname=info.processName;
                 am.killBackgroundProcesses(packname);

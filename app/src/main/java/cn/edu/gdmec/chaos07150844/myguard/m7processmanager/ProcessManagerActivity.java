@@ -1,6 +1,7 @@
 package cn.edu.gdmec.chaos07150844.myguard.m7processmanager;
 
 import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -165,7 +166,7 @@ public class ProcessManagerActivity extends AppCompatActivity implements View.On
     }
 
     private void cleanProcess(){
-        manager= (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+        manager= (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         int count=0;
         long saveMemory=0;
         List<TaskInfo> killedtaskInfos=new ArrayList<TaskInfo>();

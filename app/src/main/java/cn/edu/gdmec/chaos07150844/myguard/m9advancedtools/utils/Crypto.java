@@ -28,7 +28,7 @@ public class Crypto {
 
     private static byte[] getRawKey(byte[] seed) throws Exception {
         KeyGenerator keygen=KeyGenerator.getInstance("AES");
-        SecureRandom random=SecureRandom.getInstance("SHAIPRNG");
+        SecureRandom random=SecureRandom.getInstance("SHA1PRNG");
         random.setSeed(seed);
         keygen.init(128,random);
         SecretKey key=keygen.generateKey();
@@ -47,7 +47,7 @@ public class Crypto {
     private static byte[] decrypt(byte[] raw,byte[] encrypted) throws Exception{
         SecretKeySpec keySpec=new SecretKeySpec(raw,"AES");
         Cipher cipher=Cipher.getInstance("AES");
-        cipher.init(Cipher.ENCRYPT_MODE,keySpec);
+        cipher.init(Cipher.DECRYPT_MODE,keySpec);
         byte[] decrypted=cipher.doFinal(encrypted);
         return decrypted;
     }

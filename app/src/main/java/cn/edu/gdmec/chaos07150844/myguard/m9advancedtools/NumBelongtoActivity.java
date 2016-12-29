@@ -50,16 +50,12 @@ public class NumBelongtoActivity extends AppCompatActivity implements View.OnCli
         mResultTV=(TextView)findViewById(R.id.tv_searchresult);
         mNumET.addTextChangedListener(new TextWatcher() {
             @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
             public void afterTextChanged(Editable s) {
                 String string=s.toString().toString().trim();
                 if (string.length()==0){
@@ -95,12 +91,12 @@ public class NumBelongtoActivity extends AppCompatActivity implements View.OnCli
                 try{
                     File file=new File(getFilesDir(),dbname);
                     if (file.exists()&&file.length()>0){
-                        Log.i("NumbelongtoActivity","数据库已存在");
+                        Log.i("NumBelongtoActivity","数据库已存在");
                         return;
                     }
                     InputStream is=getAssets().open(dbname);
                     FileOutputStream fos=openFileOutput(dbname,MODE_PRIVATE);
-                    byte[] buffer=new byte[1024];
+                    byte[] buffer=new byte[8];
                     int len=0;
                     while ((len=is.read(buffer))!=-1){
                         fos.write(buffer,0,len);

@@ -64,13 +64,12 @@ public class SMSReducitionActivity extends AppCompatActivity implements View.OnC
                         try{
                             smsReducitionUtils.reducitionSms(SMSReducitionActivity.this,new SmsReducitionUtils.SmsReducitionCallBack(){
                                 @Override
-                                public void beforeSmsReducition(int size) {
-                                    mProgressButton.setMax(size);
-                                }
-
-                                @Override
                                 public void onSmsReducition(int process) {
                                     mProgressButton.setProcess(process);
+                                }
+                                @Override
+                                public void beforeSmsReducition(int size) {
+                                    mProgressButton.setMax(size);
                                 }
                             });
                         }catch (XmlPullParserException e){
