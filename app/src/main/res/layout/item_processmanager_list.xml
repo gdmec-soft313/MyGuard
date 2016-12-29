@@ -19,7 +19,8 @@
         android:singleLine="true"
         android:layout_marginLeft="16dp"
         android:layout_margin="5dp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:layout_toRightOf="@+id/imgv_appicon_processmana" />
 
     <TextView
         android:id="@+id/tv_appmemory_processmana"
