@@ -11,8 +11,8 @@ public class NumBelongtoDao {
     public static String getLocation(String phonenumber){
         String location=phonenumber;
         SQLiteDatabase db=SQLiteDatabase.openDatabase("/data/data/cn.edu.gdmec.chaos07150844.myguard/files/address.db",null,SQLiteDatabase.OPEN_READONLY);
-        if (phonenumber.matches("^1[34578]\\d[9]$")){
-            Cursor cursor=db.rawQuery("select loction from data2 where id=(select outkey from datal where id=?)",new String[]{phonenumber.substring(0,7)});
+        if (phonenumber.matches("^1[34578]\\d{9}$")){
+            Cursor cursor=db.rawQuery("select location from data2 where id=(select outkey from data1 where id=?)",new String[]{phonenumber.substring(0,7)});
             if (cursor.moveToNext()){
                 location=cursor.getString(0);
             }
@@ -43,8 +43,14 @@ public class NumBelongtoDao {
                 default:
                     if(location.length()>=9&& location.startsWith("0")){
                         String address=null;
-                        Cursor cursor=db.rawQuery("select location from data2 where area=?",new String[]{location.substring(1,3)});
+                        Cursor cursor=db.rawQuery("select location from data2 where area = ?",new String[]{location.substring(1,3)});
                         if(cursor.moveToNext()){
+                            String str=cursor.getString(0);
+                            address=str.substring(0,str.length()-2);
+                        }
+                        cursor.close();
+                        cursor=db.rawQuery("select location from data2 where area = ?",new String[]{location.substring(1,4)});
+                        if (cursor.moveToNext()){
                             String str=cursor.getString(0);
                             address=str.substring(0,str.length()-2);
                         }

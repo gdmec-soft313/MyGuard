@@ -46,6 +46,8 @@ public class SMSBackupActivity extends AppCompatActivity implements View.OnClick
         ((TextView)findViewById(R.id.tv_title)).setText("短信备份");
         mLeftImgv.setOnClickListener(this);
         mLeftImgv.setImageResource(R.drawable.back);
+        mProgressButton=(MyCircleProgress) findViewById(R.id.mcp_smsbackup);
+        mProgressButton.setOnClickListener(this);
     }
 
     protected void onDestroy(){

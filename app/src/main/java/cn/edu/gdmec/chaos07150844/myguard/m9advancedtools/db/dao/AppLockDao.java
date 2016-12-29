@@ -17,7 +17,7 @@ import cn.edu.gdmec.chaos07150844.myguard.m9advancedtools.db.AppLockOpenHelper;
 public class AppLockDao {
     private Context context;
     private AppLockOpenHelper openHelper;
-    private Uri uri=Uri.parse("content://cn.edu.gdmec.t00385.anfroid2016.myguard.applock");
+    private Uri uri=Uri.parse("content://cn.edu.gdmec.chaos07150844.myguard.applock");
     public AppLockDao(Context context){
         this.context=context;
         openHelper=new AppLockOpenHelper(context);

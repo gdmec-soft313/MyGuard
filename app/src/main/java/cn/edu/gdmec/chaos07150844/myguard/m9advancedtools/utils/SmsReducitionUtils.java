@@ -33,7 +33,7 @@ public class SmsReducitionUtils {
         if(file.exists()){
             FileInputStream is=new FileInputStream(file);
             XmlPullParser parser= Xml.newPullParser();
-            parser.setInput(is,"utf=8");
+            parser.setInput(is,"utf-8");
             SmsInfo smsInfo=null;
             int eventType=parser.getEventType();
             Integer max=null;
@@ -47,7 +47,7 @@ public class SmsReducitionUtils {
                             String maxStr = parser.getAttributeValue(0);
                             max = new Integer(maxStr);
                             callBack.beforeSmsReducition(max);
-                        } else if ("smss".equals(parser.getName())) {
+                        } else if ("sms".equals(parser.getName())) {
                             smsInfo = new SmsInfo();
                         } else if ("body".equals(parser.getName())) {
                             try {
@@ -58,7 +58,7 @@ public class SmsReducitionUtils {
                             }
                         } else if ("address".equals(parser.getName())) {
                             smsInfo.address = parser.nextText();
-                        } else if ("type".equals(parser.nextText())) {
+                        } else if ("type".equals(parser.getName())) {
                             smsInfo.type = parser.nextText();
                         } else if ("date".equals(parser.getName())) {
                             smsInfo.date = parser.nextText();
