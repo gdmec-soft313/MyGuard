@@ -136,11 +136,11 @@ public class VirusScanSpeedActivity extends AppCompatActivity implements View.On
                         e.printStackTrace();
                     }
                 }
-                    msg = Message.obtain();
-                    msg.what = SCAN_FINISH;
-                    mHandler.sendMessage(msg);
+                msg = Message.obtain();
+                msg.what = SCAN_FINISH;
+                mHandler.sendMessage(msg);
 
-                };
+            };
         }.start();
     }
 
@@ -186,12 +186,6 @@ public class VirusScanSpeedActivity extends AppCompatActivity implements View.On
                 }else if (process > 0 & process<total & isStop == false){
                     mScanningIcon.clearAnimation();
                     flag = false;
-                    mCancleBtn.setBackgroundResource(R.drawable.restart_scan_btn);
-                }else if (isStop){
-                    startAnim();
-
-                    scanVirus();
-
                     mCancleBtn.setBackgroundResource(R.drawable.restart_scan_btn);
                 }else if (isStop){
                     startAnim();
