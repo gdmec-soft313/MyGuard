@@ -27,7 +27,7 @@ public class SecurityPhoneActivity extends AppCompatActivity implements View.OnC
     private BlackNumberDao dao;
     private ListView mListView;
     private int pagenumber = 0;
-    private int pagesize = 0;
+    private int pagesize = 15;
     private int totalNumber;
     private List<BlackContactInfo> pageBlackNumber = new ArrayList<BlackContactInfo>();
     private BlackContactAdapter adapter;
@@ -63,37 +63,25 @@ public class SecurityPhoneActivity extends AppCompatActivity implements View.OnC
         }
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.imgv_leftbtn:
-                finish();
-                break;
-            case R.id.btn_addblacknumber:
-                startActivityForResult(new Intent(this, AddBlackNumberActivity.class),0);
-                break;
-        }
-    }
+
     private  void fillData(){
         dao = new BlackNumberDao(SecurityPhoneActivity.this);
         totalNumber = dao.getTotalNumber();
         if (totalNumber ==0 ){
             mHaveBlackNumber.setVisibility(View.GONE);
             mNoBlackNumber.setVisibility(View.VISIBLE);
-            Toast.makeText(this,"22",Toast.LENGTH_LONG).show();
+
         }else if (totalNumber > 0){
             mHaveBlackNumber.setVisibility(View.VISIBLE);
             mNoBlackNumber.setVisibility(View.GONE);
-
-
             pagenumber = 0;
             if (pageBlackNumber.size()>0){
                 pageBlackNumber.clear();
-                Toast.makeText(this,"33",Toast.LENGTH_LONG).show();
+
             }
             pageBlackNumber.addAll(dao.getPageBlackNumber(pagenumber,pagesize));
             if (adapter == null){
-                Toast.makeText(this,"56",Toast.LENGTH_LONG).show();
+
                 adapter = new BlackContactAdapter(pageBlackNumber,SecurityPhoneActivity.this);
                 adapter.setCallBack(new BlackContactCallBack() {
 
@@ -106,7 +94,7 @@ public class SecurityPhoneActivity extends AppCompatActivity implements View.OnC
                 mListView.setAdapter(adapter);
             }else{
                 adapter.notifyDataSetChanged();
-                Toast.makeText(this,"44",Toast.LENGTH_LONG).show();
+
             }
 
         }
@@ -150,20 +138,17 @@ public class SecurityPhoneActivity extends AppCompatActivity implements View.OnC
         });
     }
 
+
+
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(adapter==null){
-            adapter = new BlackContactAdapter(pageBlackNumber,SecurityPhoneActivity.this);
-            adapter.setCallBack(new BlackContactCallBack() {
-                @Override
-                public void DataSizeChanged() {
-                    fillData();
-                }
-            });
-            mListView.setAdapter(adapter);
-        }else{
-            adapter.notifyDataSetChanged();
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.imgv_leftbtn:
+                finish();
+                break;
+            case R.id.btn_addblacknumber:
+                startActivity(new Intent(this, AddBlackNumberActivity.class));
+                break;
         }
     }
 }

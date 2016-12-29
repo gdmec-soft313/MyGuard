@@ -42,7 +42,7 @@ public class NumBelongtoActivity extends AppCompatActivity implements View.OnCli
     private void initView() {
         findViewById(R.id.rl_titlebar).setBackgroundColor(getResources().getColor(R.color.bright_red));
         ImageView mLeftImgv= (ImageView) findViewById(R.id.imgv_leftbtn);
-        ((TextView)findViewById(R.id.tv_title)).setText("号码归属地查询");
+        ((TextView)findViewById(R.id.tv_title)).setText("号码归属查询");
         mLeftImgv.setOnClickListener(this);
         mLeftImgv.setImageResource(R.drawable.back);
         findViewById(R.id.btn_searchnumbelongto).setOnClickListener(this);
@@ -82,7 +82,7 @@ public class NumBelongtoActivity extends AppCompatActivity implements View.OnCli
                         copyDB(dbName);
                     }
                     String location= NumBelongtoDao.getLocation(phonenumber);
-                    mResultTV.setText("归属地："+location);
+                    mResultTV.setText("归属："+location);
                 }else {
                     Toast.makeText(this,"请输入需要查询的号码",Toast.LENGTH_LONG).show();
                 }

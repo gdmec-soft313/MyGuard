@@ -73,16 +73,16 @@ public class AppLockFragment extends Fragment{
     private void fillData(){
         final List<AppInfo> aInfos=new ArrayList<AppInfo>();
         new Thread(){
-            public void run(){
-                for (AppInfo appInfo:appInfos){
-                    if(dao.find(appInfo.packageName)){
-                        appInfo.isLock=true;
+            public void run() {
+                for (AppInfo appInfo : appInfos) {
+                    if (dao.find(appInfo.packageName)) {
+                        appInfo.isLock = true;
                         aInfos.add(appInfo);
                     }
                 }
-                Message msg=new Message();
-                msg.obj=aInfos;
-                msg.what=10;
+                Message msg = new Message();
+                msg.obj = aInfos;
+                msg.what = 10;
                 mHandler.sendMessage(msg);
             };
         }.start();

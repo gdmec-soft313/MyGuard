@@ -35,8 +35,9 @@ public class GPSLocationService extends Service {
         Criteria criteria = new Criteria();
         criteria.setAccuracy(Criteria.ACCURACY_FINE);
         criteria.setCostAllowed(true);
+
         String name = lm.getBestProvider(criteria, true);
-        System.out.println("最好的位置提供者" + name);
+        System.out.println("最好的位置提供者" + lm.getBestProvider(criteria, true));
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) !=
                 PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
@@ -91,6 +92,8 @@ public class GPSLocationService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
+
+
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions

@@ -16,7 +16,7 @@
             style="@style/textview12sp" />
         <TextView
             android:id="@+id/tv_sdmemory_appmanager"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
             style="@style/textview12sp" />
     </RelativeLayout>
     <FrameLayout

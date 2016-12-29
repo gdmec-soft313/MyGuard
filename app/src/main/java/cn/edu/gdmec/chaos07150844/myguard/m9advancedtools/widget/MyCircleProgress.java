@@ -12,7 +12,7 @@ import android.util.AttributeSet;
 import android.widget.Button;
 
 import cn.edu.gdmec.chaos07150844.myguard.R;
-import cn.edu.gdmec.chaos07150844.myguard.m9advancedtools.utils.DensityUtil;
+import cn.edu.gdmec.chaos07150844.myguard.m4appmanager.utils.DensityUtil;
 
 /**
  * Created by qaq on 2016/12/20.

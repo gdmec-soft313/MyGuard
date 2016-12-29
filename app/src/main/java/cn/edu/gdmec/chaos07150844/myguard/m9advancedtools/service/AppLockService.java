@@ -22,7 +22,7 @@ import cn.edu.gdmec.chaos07150844.myguard.m9advancedtools.db.dao.AppLockDao;
 public class AppLockService extends Service{
     private boolean flag=false;
     private AppLockDao dao;
-    private Uri uri= Uri.parse("content://cn.edu.gdmec.t00385.android2016.myguard.applock");
+    private Uri uri= Uri.parse("cn.edu.gdmec.chaos07150844.myguard.applock");
     private List<String> packagenames;
     private Intent intent;
     private ActivityManager am;
@@ -42,7 +42,7 @@ public class AppLockService extends Service{
         getContentResolver().registerContentObserver(uri,true,observer);
         packagenames=dao.findAll();
         receiver=new AppLockReceiver();
-        IntentFilter filter=new IntentFilter("cn.edu.gdmec.t00385.android2016.myguard.applock");
+        IntentFilter filter=new IntentFilter("cn.edu.gdmec.chaos07150844.myguard.applock");
         filter.addAction(Intent.ACTION_SCREEN_ON);
         filter.addAction(Intent.ACTION_SCREEN_OFF);
         registerReceiver(receiver,filter);
@@ -64,6 +64,7 @@ public class AppLockService extends Service{
                         if(!pacagekname.equals(tempStopProtectPackname)){
                             intent.putExtra("packagename",pacagekname);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
                         }
                     }
                     try{
@@ -81,6 +82,8 @@ public class AppLockService extends Service{
         @Override
         public void onReceive(Context context, Intent intent) {
             if("cn.itcast.mobliesafe.applock".equals(intent.getAction())){
+                tempStopProtectPackname=intent.getStringExtra("packagename");
+            }else if(Intent.ACTION_SCREEN_OFF.equals(intent.getAction())) {
                 tempStopProtectPackname=null;
                 flag=false;
             }else if(Intent.ACTION_SCREEN_ON.equals(intent.getAction())){

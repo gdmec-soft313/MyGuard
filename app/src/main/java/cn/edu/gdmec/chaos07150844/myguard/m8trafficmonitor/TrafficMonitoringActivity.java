@@ -118,6 +118,7 @@ public class TrafficMonitoringActivity extends AppCompatActivity implements View
                         Toast.makeText(this,"您还没有设置运营商信息",Toast.LENGTH_SHORT).show();
                         break;
                     case 1:
+                        smsManager.sendTextMessage("10086",null,"CXLL",null,null);
                         break;
                     case 2:
                         smsManager.sendTextMessage("10010",null,"LLCX",null,null);
@@ -133,51 +134,63 @@ public class TrafficMonitoringActivity extends AppCompatActivity implements View
         @Override
         public void onReceive(Context context, Intent intent) {
             Object[] objs = (Object[])intent.getExtras().get("pdus");
-            for (Object obj : objs){
+            int j = 0;
+            String body = "";
+            for (Object obj : objs) {
                 SmsMessage smsMessage = SmsMessage.createFromPdu((byte[]) obj);
-                String body = smsMessage.getMessageBody();
+                body += smsMessage.getMessageBody();
                 String address = smsMessage.getOriginatingAddress();
-                if (!address.equals("10010")){
+                if (!address.equals("10086")) {
                     return;
                 }
-                String[] split = body.split(",");
-                long left = 0;
-                long used = 0;
-                long beyond = 0;
-                for (int i = 0;i<split.length;i++){
-                    if (split[i].contains("本月流量已使用")){
-                        String usedflow = split[i].substring(7,split[i].length());
-                        used = getStringTofloat(usedflow);
-                    }else if (split[i].contains("剩余流量")){
-                        String leftflow = split[i].substring(4,split[i].length());
-                        left = getStringTofloat(leftflow);
-                    }else if (split[i].contains("套餐外流量")){
-                        String beyondflow = split[i].substring(5,split[i].length());
-                        beyond = getStringTofloat(beyondflow);
-                    }
-                }
-                SharedPreferences.Editor editor = mSP.edit();
-                editor.putLong("totalflow",used+left);
-                editor.putLong("usedflow",used+beyond);
-                editor.commit();
-                mTotalTV.setText("本月流量："+Formatter.formatFileSize(context,(used+left)));
-                mUsedTV.setText("本月已用："+Formatter.formatFileSize(context,(used+beyond)));
             }
+
+            System.out.println(body);
+            String[] split = body.split("，");
+            long left = 0;
+            long used = 0;
+            long beyond = 0;
+            boolean boo = true;
+            for (int i = 0;i<split.length;i++){
+                System.out.println(i+split[i]);
+                if (split[i].contains("您当月常用流量已用")){
+                    String usedflow = split[i].substring(9,split[i].length());
+                    used = getStringTofloat(usedflow);
+                    System.out.println(usedflow);
+                    System.out.println(used);
+                }else if (boo & split[i].contains("可用")){
+                    String leftflow = split[i].substring(2,split[i].length());
+                    left = getStringTofloat(leftflow);
+                    boo = false;
+                    System.out.println(leftflow);
+                    System.out.println(left);
+                }else if (split[i].contains("套餐外流量")){
+                    String beyondflow = split[i].substring(5,split[i].length());
+                    beyond = getStringTofloat(beyondflow);
+                }
+            }
+            SharedPreferences.Editor editor = mSP.edit();
+            editor.putLong("totalflow",used+left);
+            editor.putLong("usedflow",used+beyond);
+            editor.commit();
+            mTotalTV.setText("本月流量："+Formatter.formatFileSize(context,(used+left)));
+            mUsedTV.setText("本月已用："+Formatter.formatFileSize(context,(used+beyond)));
         }
+
     }
     private long getStringTofloat(String str){
         long flow = 0;
         if (!TextUtils.isEmpty(str)){
-            if (str.contains("KB")){
-                String [] split = str.split("KB");
+            if (str.contains("K")){
+                String [] split = str.split("K");
                 float m = Float.parseFloat(split[0]);
                 flow = (long) (m*1024);
-            }else if (str.contains("MB")){
-                String [] split = str.split("MB");
+            }else if (str.contains("M")){
+                String [] split = str.split("M");
                 float m = Float.parseFloat(split[0]);
                 flow = (long) (m*1024*1024);
-            }else if (str.contains("GB")){
-                String [] split = str.split("GB");
+            }else if (str.contains("G")){
+                String [] split = str.split("G");
                 float m = Float.parseFloat(split[0]);
                 flow = (long) (m*1024*1024*1024);
             }

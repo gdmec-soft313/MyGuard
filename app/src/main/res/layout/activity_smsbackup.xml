@@ -19,7 +19,6 @@
             android:gravity="center"
             android:text="一键备份"
             android:textColor="@color/white"
-
             itcast:circleColor="@color/bright_red"
             itcast:progressColor="@color/light_pink"
             android:background="@drawable/add" />

@@ -90,21 +90,23 @@ public class AppManagerActivity extends AppCompatActivity implements View.OnClic
                 if (adapter != null){
                     new Thread(){
                         public void run(){
-                            AppInfo mappInfo = (AppInfo)adapter.getItem(position);
-                            boolean flag = mappInfo.isSelected;
-                            for (AppInfo appInfo:userAppInfos){
-                                appInfo.isSelected = false;
-                            }
-                            for (AppInfo appInfo:systemAppInfos){
-                                appInfo.isSelected = false;
-                            }
-                            if (mappInfo != null){
-                                if (flag){
-                                    mappInfo.isSelected = false;
-                                }else {
-                                    mappInfo.isSelected = true;
+                            if (position != 0 & position != userAppInfos.size() + 1) {
+                                AppInfo mappInfo = (AppInfo) adapter.getItem(position);
+                                boolean flag = mappInfo.isSelected;
+                                for (AppInfo appInfo : userAppInfos) {
+                                    appInfo.isSelected = false;
                                 }
-                                mHandler.sendEmptyMessage(15);
+                                for (AppInfo appInfo : systemAppInfos) {
+                                    appInfo.isSelected = false;
+                                }
+                                if (mappInfo != null) {
+                                    if (flag) {
+                                        mappInfo.isSelected = false;
+                                    } else {
+                                        mappInfo.isSelected = true;
+                                    }
+                                    mHandler.sendEmptyMessage(15);
+                                }
                             }
                         }
                     }.start();
@@ -122,7 +124,7 @@ public class AppManagerActivity extends AppCompatActivity implements View.OnClic
                 if (firstVisibleItem >= userAppInfos.size() + 1){
                     mAppNumTV.setText("系统程序:"+systemAppInfos.size()+"个");
                 }else {
-                    mAppNumTV.setText("系统程序:"+userAppInfos.size()+"个");
+                    mAppNumTV.setText("用户程序:"+userAppInfos.size()+"个");
                 }
             }
         });

@@ -37,7 +37,7 @@ public class SmsLostFindReciver extends BroadcastReceiver {
                 }
                 String body = smsMessage.getMessageBody();
                 String safephone = sharedPreferences.getString("safephone",null);
-                if(!TextUtils.isEmpty(safephone)&sender.equals(safephone)){
+                if(!TextUtils.isEmpty(safephone) & sender.equals(safephone)){
                     if("#*location*#".equals(body)){
                         Log.i(TAG,"返回位置信息");
                         Intent service = new Intent(context, GPSLocationService.class);
@@ -56,7 +56,7 @@ public class SmsLostFindReciver extends BroadcastReceiver {
 
                     }else if("#*lockScreen*#".equals(body)){
                         Log.i(TAG,"远程锁屏");
-                        dpm.resetPassword("123",0);
+                        dpm.resetPassword("12345",0);
                         dpm.lockNow();
                         abortBroadcast();
                     }
